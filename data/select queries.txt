@@ -1,0 +1,18 @@
+select c.category_id, c.category_name, p.* from category as c, page as p, page_cate pc 
+where pc.page_id = p.page_id and pc.category_id = c.category_id and c.category_id in (2835113,1489690)
+
+select p.* from page_vec as p where page_id = 3472397
+
+select array_to_string(page_vec, ',')
+from page_vec where page_id = 3472397;
+
+select count(*) from page_vec
+
+# pages without any vectors
+select c.*,pc.page_id from category as c, page_cate as pc where pc.category_id = c.category_id and pc.page_id in (
+select p.page_id from page as p left join page_vec as pv on p.page_id = pv.page_id where pv.page_id is null) 
+
+select p.page_id from page as p left join page_vec as pv on p.page_id = pv.page_id where pv.page_id is null
+
+select c.category_id, c.category_name, p.* from category as c, page as p, page_cate pc 
+where pc.page_id = p.page_id and pc.category_id = c.category_id and c.category_id in (2835113,1489690)
